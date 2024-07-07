@@ -6,6 +6,106 @@
     <title>CrateShip - Find the Best Products to Dropship</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="https://pic.onlinewebfonts.com/thumbnails/icons_567395.svg">
+    <style>
+        /* Additional styles can be included here */
+        .hero h2 span {
+            color: #2E8B57; /* Dark green */
+        }
+
+        .hero p span {
+            color: #2E8B57; /* Dark green */
+        }
+
+        @keyframes scrollProducts {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% - 20px));
+            }
+        }
+
+        .sourcers-logos {
+            display: flex;
+            justify-content: center; /* Center logos horizontally */
+            gap: 20px; /* Adjust gap between logos */
+            margin-top: 20px; /* Add margin for spacing from section title */
+        }
+
+        .sourcers-logos img {
+            max-height: 80px; /* Adjust maximum height for all logos */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center; /* Center testimonials horizontally */
+            gap: 20px; /* Adjust gap between testimonials */
+            margin-top: 20px; /* Add margin for spacing from section title */
+        }
+
+        .testimonial-card {
+            flex: 1; /* Equal width for all testimonials */
+        }
+
+        .testimonial-card.bigger {
+            flex: 2; /* Larger width for middle testimonial */
+        }
+
+        .featured-products .product-carousel {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Five columns */
+            gap: 20px; /* Adjust gap between product cards */
+        }
+
+        .featured-products .product-card {
+            width: 180px; /* Set width of product card */
+            height: 260px; /* Set height of product card */
+            background-color: #f2f2f2; /* Light grey background */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow content */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+            transition: transform 0.3s ease; /* Smooth transform animation */
+            display: flex; /* Flexbox for vertical alignment */
+            flex-direction: column; /* Stack child elements vertically */
+            justify-content: space-between; /* Space evenly */
+        }
+
+        .featured-products .product-card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+        }
+
+        .featured-products .product-card img {
+            width: 100%; /* Ensure image fills card */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover image */
+        }
+
+        .featured-products .product-info {
+            padding: 10px; /* Padding inside card */
+        }
+
+        .featured-products .product-info h3 {
+            font-size: 16px; /* Product name font size */
+            color: #333; /* Product name text color */
+            margin-bottom: 5px; /* Bottom margin for spacing */
+        }
+
+        .featured-products .product-info p {
+            font-size: 14px; /* Description font size */
+            color: #666; /* Description text color */
+            margin-bottom: 10px; /* Bottom margin for spacing */
+        }
+
+        .featured-products .product-price {
+            display: flex; /* Flexbox for price label and price */
+            justify-content: space-between; /* Space between items */
+            align-items: center; /* Center align items */
+            color: #2E8B57; /* Dark green price text color */
+            font-weight: bold; /* Bold font for price */
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -24,19 +124,15 @@
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for products...">
-            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Find the Best Products to Dropship Today!</h2>
+            <h2>Find the <span>Best Products</span> to Dropship <span>Today!</span></h2>
             <p>Your one-stop platform for top-performing dropshipping products.</p>
-            <a href="#" class="btn">Get Started</a>
-            <a href="#" class="btn">Learn More</a>
+            <a href="#" class="btn get-started">Get Started</a>
         </div>
     </section>
 
@@ -45,61 +141,178 @@
         <div class="container">
             <h2>Featured Products</h2>
             <div class="product-carousel">
-                <!-- Sample product cards -->
+                <!-- Product cards -->
+                <!-- Product 1 -->
                 <div class="product-card">
                     <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 1</h3>
-                    <p>Brief description of Product 1.</p>
+                    <div class="product-info">
+                        <h3>Product 1</h3>
+                        <p>Brief description of Product 1.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$29.99</p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Repeat for other 9 products -->
+                <!-- Product 2 -->
                 <div class="product-card">
                     <img src="product2.jpg" alt="Product 2">
-                    <h3>Product 2</h3>
-                    <p>Brief description of Product 2.</p>
+                    <div class="product-info">
+                        <h3>Product 2</h3>
+                        <p>Brief description of Product 2.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$39.99</p>
+                        </div>
+                    </div>
                 </div>
+                <!-- Product 3 -->
                 <div class="product-card">
                     <img src="product3.jpg" alt="Product 3">
-                    <h3>Product 3</h3>
-                    <p>Brief description of Product 3.</p>
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>Brief description of Product 3.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$49.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="product4.jpg" alt="Product 4">
+                    <div class="product-info">
+                        <h3>Product 4</h3>
+                        <p>Brief description of Product 4.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$59.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="product5.jpg" alt="Product 5">
+                    <div class="product-info">
+                        <h3>Product 5</h3>
+                        <p>Brief description of Product 5.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$69.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="product6.jpg" alt="Product 6">
+                    <div class="product-info">
+                        <h3>Product 6</h3>
+                        <p>Brief description of Product 6.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$79.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="product7.jpg" alt="Product 7">
+                    <div class="product-info">
+                        <h3>Product 7</h3>
+                        <p>Brief description of Product 7.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$89.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="product8.jpg" alt="Product 8">
+                    <div class="product-info">
+                        <h3>Product 8</h3>
+                        <p>Brief description of Product 8.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$99.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="product9.jpg" alt="Product 9">
+                    <div class="product-info">
+                        <h3>Product 9</h3>
+                        <p>Brief description of Product 9.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$109.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <img src="product10.jpg" alt="Product 10">
+                    <div class="product-info">
+                        <h3>Product 10</h3>
+                        <p>Brief description of Product 10.</p>
+                        <div class="product-price">
+                            <p class="price-label">Price:</p>
+                            <p class="price">$119.99</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
+    <!-- Original Sourcers -->
+    <section class="original-sourcers">
         <div class="container">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <h3>1. Search for Products</h3>
-                    <p>Use our advanced search to find top-performing products.</p>
-                </div>
-                <div class="step">
-                    <h3>2. Analyze Performance</h3>
-                    <p>Analyze key performance metrics to make informed decisions.</p>
-                </div>
-                <div class="step">
-                    <h3>3. Start Dropshipping</h3>
-                    <p>List the products and start your dropshipping business.</p>
-                </div>
+            <h2 style="text-align: center;">Original Sourcers</h2>
+            <div class="sourcers-logos">
+                <img src="https://1000logos.net/wp-content/uploads/2021/04/Banggood-logo.png" alt="Banggood Logo" style="max-width: 200px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Aliexpress_logo.svg" alt="AliExpress Logo" style="max-width: 200px;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1280px-Temu_logo.svg.png" alt="Temu Logo" style="max-width: 100px;">
             </div>
         </div>
     </section>
 
     <!-- User Testimonials -->
-    <section class="testimonials">
+    <section class="user-testimonials">
         <div class="container">
-            <h2>User Testimonials</h2>
-            <div class="testimonial-carousel">
-                <!-- Sample testimonial cards -->
+            <h2 style="text-align: center;">User Testimonials</h2>
+            <div class="testimonial-cards">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
-                    <p>"CrateShip helped me find the best products and boost my business!" - User A</p>
+                    <div class="testimonial-content">
+                        <p>"Great platform for finding profitable products."</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="user1.jpg" alt="User 1">
+                        <p>John Doe</p>
+                    </div>
                 </div>
+                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
-                    <p>"A must-have platform for every dropshipper!" - User B</p>
+                    <div class="testimonial-content">
+                        <p>"Easy to use interface and valuable insights. Love it!"</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="user2.jpg" alt="User 2">
+                        <p>Jane Smith</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p>"Highly recommend CrateShip for its detailed product analytics." - User C</p>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bigger">
+                    <div class="testimonial-content">
+                        <p>"CrateShip helped me scale my dropshipping business effectively."</p>
+                    </div>
+                    <div class="testimonial-user">
+                        <img src="user3.jpg" alt="User 3">
+                        <p>Michael Johnson</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,17 +327,12 @@
                 <a href="#">Terms of Service</a>
                 <a href="#">Privacy Policy</a>
             </div>
-            <div class="social-media">
-                <!-- Sample social media icons -->
-                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-            </div>
             <div class="newsletter">
-                <input type="email" placeholder="Subscribe to our newsletter">
+                <input type="email" placeholder="john@doe.com">
                 <button>Subscribe</button>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
