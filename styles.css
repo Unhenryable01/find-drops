@@ -57,17 +57,25 @@ header nav ul li a {
     color: #fff;
     text-decoration: none;
     padding: 10px 0; /* Adjusted padding to increase the height of the clickable area */
+    position: relative;
 }
 
-header .search-bar {
-    flex: 1;
-    text-align: right;
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #00f260, #0575e6);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
 }
 
-header .search-bar input {
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* Hero Section */
@@ -78,43 +86,95 @@ header .search-bar input {
     padding: 100px 0;
 }
 
+.hero h2 span {
+    color: #2E8B57; /* Dark green */
+}
+
+.hero p span {
+    color: #2E8B57; /* Dark green */
+}
+
 .hero .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px;
     margin: 10px;
-    background: #ff6600;
+    background: none;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #FF416C, #FF4B2B, #FFD801, #44A08D);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
 }
 
 .hero .btn:hover {
-    background: #cc5200;
+    background-position: right center;
 }
 
-/* Featured Products */
+/* Adjust the width and height of product cards */
 .featured-products {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #2a2a2a;
+    background-color: #444; /* Darker background color */
+    padding: 50px 0; /* Vertical padding */
+    overflow: hidden; /* Hide overflow content */
 }
 
 .product-carousel {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: flex;
+    animation: scroll 30s linear infinite; /* Adjust animation timing as needed */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .product-card {
-    padding: 10px;
-    background: #3b3b3b;
-    border-radius: 5px;
-    text-align: left;
+    width: 240px; /* Set width of product card */
+    height: 320px; /* Set height of product card */
+    background: #fff; /* White background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for card */
+    border-radius: 10px; /* Rounded corners */
+    margin-right: 20px; /* Margin between cards */
+    overflow: hidden; /* Hide overflow content */
+    transition: transform 0.3s ease; /* Smooth transform animation */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
 }
 
 .product-card img {
-    width: 100%;
-    border-radius: 5px;
+    width: 100%; /* Ensure image fills card */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.product-info {
+    padding: 10px; /* Padding inside card */
+}
+
+.product-info h3 {
+    font-size: 18px; /* Product name font size */
+    color: #333; /* Product name color */
+    margin-bottom: 5px; /* Bottom margin for spacing */
+}
+
+.product-info p {
+    font-size: 14px; /* Description font size */
+    color: #666; /* Description text color */
+    margin-bottom: 10px; /* Bottom margin for spacing */
+}
+
+.product-price {
+    display: flex; /* Flexbox for price label and price */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center align items */
+    color: #2E8B57; /* Dark green price text color */
+    font-weight: bold; /* Bold font for price */
 }
 
 /* How It Works */
@@ -143,14 +203,43 @@ header .search-bar input {
 .testimonial-carousel {
     display: flex;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .testimonial-card {
     width: 30%;
-    padding: 10px;
+    padding: 20px;
     background: #3b3b3b;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: left;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.testimonial-card:hover {
+    background: linear-gradient(to right, #2E8B57, #1E90FF);
+}
+
+.testimonial-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.testimonial-card.bigger {
+    width: 60%; /* Larger testimonial */
+}
+
+/* Original Sourcers */
+.original-sourcers {
+    background: #2a2a2a;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.original-sourcers h2 {
+    color: #fff;
 }
 
 /* Footer */
@@ -171,29 +260,34 @@ footer {
     text-decoration: none;
 }
 
-.social-media {
-    margin-bottom: 10px;
-}
-
-.social-media a {
-    margin: 0 5px;
-}
-
 .newsletter input {
-    padding: 5px;
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.newsletter input::placeholder {
+    color: #ccc;
+}
+
+.newsletter input:focus {
+    background-color: #444;
 }
 
 .newsletter button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border: none;
-    background: #ff6600;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 25px;
     cursor: pointer;
+    background: linear-gradient(to right, #FF416C, #FF4B2B, #FFD801, #44A08D);
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
 }
 
 .newsletter button:hover {
-    background: #cc5200;
+    background-position: right center;
 }
